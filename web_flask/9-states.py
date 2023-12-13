@@ -14,6 +14,7 @@ app = Flask(__name__)
 def states_list(id=None):
     """display a HTML page with a list of all State objects"""
     states = storage.all(State).values()
+    states = sorted(states, key=lambda state: state.name)
     specific_state = None
 
     if id:
